@@ -10,7 +10,8 @@
     "test": "jest --coverage",
     "test:watch": "jest --watch",
     "test:unit": "jest tests/unit",
-    "test:integration": "jest tests/integration"
+    "test:integration": "jest tests/integration",
+    "vercel-build": "npm run build"
   },
   "keywords": [
     "shamsi",
