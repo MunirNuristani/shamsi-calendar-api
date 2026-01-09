@@ -1,0 +1,37 @@
+# Dependencies
+node_modules
+
+# Development files
+*.md
+!README.md
+
+# Tests
+tests
+coverage
+*.test.ts
+*.spec.ts
+
+# Config files
+.env.local
+.env.development
+.env.test
+tsconfig.json
+jest.config.js
+
+# IDE
+.vscode
+.idea
+.DS_Store
+
+# Logs
+*.log
+logs
+
+# Build artifacts (Vercel will build)
+dist
+
+# Documentation
+docs
+SWAGGER_GUIDE.md
+SWAGGER_IMPLEMENTATION_SUMMARY.md
+QUICK_START.md

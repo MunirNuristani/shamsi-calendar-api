@@ -49,3 +49,5 @@ SWAGGER_IMPLEMENTATION_SUMMARY.md
 
 # claude files
 .claude
+.vercel
+.env*.local
