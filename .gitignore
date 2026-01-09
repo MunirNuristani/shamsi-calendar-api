@@ -40,3 +40,12 @@ temp/
 # OS
 Thumbs.db
 .DS_Store
+
+# some MD files
+QUICK_START.md
+SWAGGER_GUIDE.md
+SWAGGER_IMPLEMENTATION_SUMMARY.md
+
+
+# claude files
+.claude
