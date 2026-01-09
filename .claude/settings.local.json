@@ -1,0 +1,27 @@
+{
+  "permissions": {
+    "allow": [
+      "Bash(npm run build:*)",
+      "mcp__ide__getDiagnostics",
+      "Bash(curl:*)",
+      "Bash(lsof:*)",
+      "Bash(kill:*)",
+      "Bash(python3:*)",
+      "Bash(npm test:*)",
+      "Bash(node:*)",
+      "Bash(pkill:*)",
+      "Bash(xargs kill -9)",
+      "Bash(__NEW_LINE__ echo '✅ Coverage: 100% (17/17 endpoints)')",
+      "Bash(__NEW_LINE__ echo '📍 Access Points:')",
+      "Bash(__NEW_LINE__ echo '   • Swagger UI: http://localhost:3000/api-docs')",
+      "Bash(__NEW_LINE__ echo '   • OpenAPI JSON: http://localhost:3000/api-docs.json')",
+      "Bash(__NEW_LINE__ echo '   • Static YAML: docs/openapi.yaml')",
+      "Bash(__NEW_LINE__ echo '📚 Documentation Files:')",
+      "Bash(__NEW_LINE__ ls -lh SWAGGER_GUIDE.md SWAGGER_IMPLEMENTATION_SUMMARY.md docs/openapi.yaml)",
+      "Bash(jest:*)",
+      "Bash(npx jest:*)"
+    ],
+    "deny": [],
+    "ask": []
+  }
+}

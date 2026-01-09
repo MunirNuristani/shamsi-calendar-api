@@ -1,0 +1,158 @@
+{
+  "1403": [
+    {
+      "id": "1403-1-1",
+      "shamsiYear": 1403,
+      "shamsiMonth": 1,
+      "shamsiDay": 1,
+      "names": {
+        "dari": "نوروز",
+        "pashto": "نوی کال",
+        "english": "Nowruz (New Year)"
+      },
+      "descriptions": {
+        "dari": "جشن سال نو و آغاز بهار",
+        "pashto": "د نوي کال جشن او د پسرلي پیل",
+        "english": "Celebration of the new year and beginning of spring"
+      },
+      "type": "national",
+      "isNationalHoliday": true,
+      "isPublicHoliday": true
+    },
+    {
+      "id": "1403-2-8",
+      "shamsiYear": 1403,
+      "shamsiMonth": 2,
+      "shamsiDay": 8,
+      "names": {
+        "dari": "روز کارگر",
+        "pashto": "د کارګرانو ورځ",
+        "english": "Labor Day"
+      },
+      "descriptions": {
+        "dari": "روز بین المللی کارگران",
+        "pashto": "د کارګرانو نړیواله ورځ",
+        "english": "International Workers' Day"
+      },
+      "type": "international",
+      "isNationalHoliday": false,
+      "isPublicHoliday": true
+    },
+    {
+      "id": "1403-2-28",
+      "shamsiYear": 1403,
+      "shamsiMonth": 2,
+      "shamsiDay": 28,
+      "names": {
+        "dari": "روز استقلال",
+        "pashto": "د خپلواکۍ ورځ",
+        "english": "Independence Day"
+      },
+      "descriptions": {
+        "dari": "سالروز استقلال افغانستان",
+        "pashto": "د افغانستان د خپلواکۍ کلیزه",
+        "english": "Anniversary of Afghanistan's independence"
+      },
+      "type": "national",
+      "isNationalHoliday": true,
+      "isPublicHoliday": true
+    },
+    {
+      "id": "1403-4-8",
+      "shamsiYear": 1403,
+      "shamsiMonth": 4,
+      "shamsiDay": 8,
+      "names": {
+        "dari": "روز شهدا",
+        "pashto": "د شهیدانو ورځ",
+        "english": "Martyrs' Day"
+      },
+      "descriptions": {
+        "dari": "روز یادبود شهدای راه آزادی",
+        "pashto": "د ازادۍ په لاره د شهیدانو یادونه",
+        "english": "Day of remembrance for martyrs of freedom"
+      },
+      "type": "national",
+      "isNationalHoliday": true,
+      "isPublicHoliday": true
+    }
+  ],
+  "1404": [
+    {
+      "id": "1404-1-1",
+      "shamsiYear": 1404,
+      "shamsiMonth": 1,
+      "shamsiDay": 1,
+      "names": {
+        "dari": "نوروز",
+        "pashto": "نوی کال",
+        "english": "Nowruz (New Year)"
+      },
+      "descriptions": {
+        "dari": "جشن سال نو و آغاز بهار",
+        "pashto": "د نوي کال جشن او د پسرلي پیل",
+        "english": "Celebration of the new year and beginning of spring"
+      },
+      "type": "national",
+      "isNationalHoliday": true,
+      "isPublicHoliday": true
+    },
+    {
+      "id": "1404-2-8",
+      "shamsiYear": 1404,
+      "shamsiMonth": 2,
+      "shamsiDay": 8,
+      "names": {
+        "dari": "روز کارگر",
+        "pashto": "د کارګرانو ورځ",
+        "english": "Labor Day"
+      },
+      "descriptions": {
+        "dari": "روز بین المللی کارگران",
+        "pashto": "د کارګرانو نړیواله ورځ",
+        "english": "International Workers' Day"
+      },
+      "type": "international",
+      "isNationalHoliday": false,
+      "isPublicHoliday": true
+    },
+    {
+      "id": "1404-2-28",
+      "shamsiYear": 1404,
+      "shamsiMonth": 2,
+      "shamsiDay": 28,
+      "names": {
+        "dari": "روز استقلال",
+        "pashto": "د خپلواکۍ ورځ",
+        "english": "Independence Day"
+      },
+      "descriptions": {
+        "dari": "سالروز استقلال افغانستان",
+        "pashto": "د افغانستان د خپلواکۍ کلیزه",
+        "english": "Anniversary of Afghanistan's independence"
+      },
+      "type": "national",
+      "isNationalHoliday": true,
+      "isPublicHoliday": true
+    },
+    {
+      "id": "1404-4-8",
+      "shamsiYear": 1404,
+      "shamsiMonth": 4,
+      "shamsiDay": 8,
+      "names": {
+        "dari": "روز شهدا",
+        "pashto": "د شهیدانو ورځ",
+        "english": "Martyrs' Day"
+      },
+      "descriptions": {
+        "dari": "روز یادبود شهدای راه آزادی",
+        "pashto": "د ازادۍ په لاره د شهیدانو یادونه",
+        "english": "Day of remembrance for martyrs of freedom"
+      },
+      "type": "national",
+      "isNationalHoliday": true,
+      "isPublicHoliday": true
+    }
+  ]
+}
