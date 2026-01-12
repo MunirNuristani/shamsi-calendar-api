@@ -2,7 +2,7 @@
   "outputDirectory": "public",
   "functions": {
     "api/index.js": {
-      "includeFiles": "{dist/**,data/**,docs/**}"
+      "includeFiles": "{dist/**,data/**,docs/**,node_modules/swagger-ui-dist/**}"
     }
   },
   "rewrites": [
@@ -11,11 +11,11 @@
       "destination": "/api/index.js"
     },
     {
-      "source": "/api-docs",
+      "source": "/api-docs/:path*",
       "destination": "/api/index.js"
     },
     {
-      "source": "/api-docs/(.*)",
+      "source": "/api-docs",
       "destination": "/api/index.js"
     },
     {
