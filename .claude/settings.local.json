@@ -19,7 +19,8 @@
       "Bash(__NEW_LINE__ echo '📚 Documentation Files:')",
       "Bash(__NEW_LINE__ ls -lh SWAGGER_GUIDE.md SWAGGER_IMPLEMENTATION_SUMMARY.md docs/openapi.yaml)",
       "Bash(jest:*)",
-      "Bash(npx jest:*)"
+      "Bash(npx jest:*)",
+      "Bash(cat:*)"
     ],
     "deny": [],
     "ask": []

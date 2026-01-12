@@ -15,7 +15,6 @@ coverage
 .env.local
 .env.development
 .env.test
-tsconfig.json
 jest.config.js
 
 # IDE
@@ -26,9 +25,6 @@ jest.config.js
 # Logs
 *.log
 logs
-
-# Build artifacts (Vercel will build)
-dist
 
 # Documentation
 docs
