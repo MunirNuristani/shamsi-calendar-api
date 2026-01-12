@@ -26,8 +26,8 @@ jest.config.js
 *.log
 logs
 
-# Documentation
-docs
+# Documentation (keep docs/openapi.yaml for API)
 SWAGGER_GUIDE.md
 SWAGGER_IMPLEMENTATION_SUMMARY.md
 QUICK_START.md
+DEPLOYMENT.md
