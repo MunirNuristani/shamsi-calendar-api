@@ -91,6 +91,11 @@ app.get('/', (req: Request, res: Response) => {
   });
 });
 
+// Favicon handler (prevent 404 errors)
+app.get('/favicon.ico', (req: Request, res: Response) => {
+  res.status(204).end();
+});
+
 // ===========================
 // Error Handling
 // ===========================
