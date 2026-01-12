@@ -5,26 +5,26 @@
       "includeFiles": "{dist/**,data/**,docs/**,node_modules/swagger-ui-dist/**}"
     }
   },
-  "rewrites": [
+  "routes": [
     {
-      "source": "/api-docs.json",
-      "destination": "/api/index.js"
+      "src": "/api-docs\\.json",
+      "dest": "/api/index.js"
     },
     {
-      "source": "/api-docs/:path*",
-      "destination": "/api/index.js"
+      "src": "/api-docs/(.*)",
+      "dest": "/api/index.js"
     },
     {
-      "source": "/api-docs",
-      "destination": "/api/index.js"
+      "src": "/api-docs",
+      "dest": "/api/index.js"
     },
     {
-      "source": "/health",
-      "destination": "/api/index.js"
+      "src": "/health",
+      "dest": "/api/index.js"
     },
     {
-      "source": "/api/(.*)",
-      "destination": "/api/index.js"
+      "src": "/api/(.*)",
+      "dest": "/api/index.js"
     }
   ]
 }
