@@ -1,4 +1,5 @@
 {
+  "outputDirectory": "public",
   "functions": {
     "api/index.js": {
       "includeFiles": "{dist/**,data/**,docs/**}"
@@ -6,7 +7,19 @@
   },
   "rewrites": [
     {
-      "source": "/(.*)",
+      "source": "/api/:path*",
+      "destination": "/api/index.js"
+    },
+    {
+      "source": "/health",
+      "destination": "/api/index.js"
+    },
+    {
+      "source": "/api-docs/:path*",
+      "destination": "/api/index.js"
+    },
+    {
+      "source": "/api-docs.json",
       "destination": "/api/index.js"
     }
   ]
