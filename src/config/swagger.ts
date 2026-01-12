@@ -21,7 +21,7 @@ const options: swaggerJsdoc.Options = {
     servers: [
       
       {
-        url: process.env.PRODUCTION_URL || 'https://shamsi-calendar-api.com',
+        url: process.env.PRODUCTION_URL || 'https://shamsi-calender.vercel.app',
         description: 'Production server',
       },
     ],
