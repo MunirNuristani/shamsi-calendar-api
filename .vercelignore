@@ -1,7 +1,7 @@
 # Dependencies
 node_modules
 
-# Development files
+# Development files (keep src for building on Vercel)
 *.md
 !README.md
 
@@ -26,8 +26,13 @@ jest.config.js
 *.log
 logs
 
-# Documentation (keep docs/openapi.yaml for API)
+# Git
+.git
+.gitignore
+
+# Documentation
 SWAGGER_GUIDE.md
 SWAGGER_IMPLEMENTATION_SUMMARY.md
 QUICK_START.md
 DEPLOYMENT.md
+TEST_README.md
