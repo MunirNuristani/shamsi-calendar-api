@@ -1,49 +1,545 @@
 <!DOCTYPE html>
-<html lang="en">
+<html lang="en" dir="ltr">
 <head>
     <meta charset="UTF-8">
     <meta name="viewport" content="width=device-width, initial-scale=1.0">
-    <title>Shamsi Calendar API</title>
+    <meta name="description" content="Comprehensive RESTful API for the Afghan Shamsi (Solar Hijri) calendar with support for Dari and Pashto month names">
+    <meta name="keywords" content="Afghan calendar, Shamsi calendar, Solar Hijri, API, Afghanistan, Dari, Pashto">
+    <title>Afghan Shamsi Calendar API - Official RESTful API</title>
+    <link href="https://fonts.googleapis.com/css2?family=Inter:wght@400;600;700;900&display=swap" rel="stylesheet">
     <style>
-        body {
-            font-family: -apple-system, BlinkMacSystemFont, 'Segoe UI', Roboto, Oxygen, Ubuntu, Cantarell, sans-serif;
-            display: flex;
-            justify-content: center;
-            align-items: center;
-            height: 100vh;
+        * {
             margin: 0;
-            background: linear-gradient(135deg, #667eea 0%, #764ba2 100%);
-            color: white;
+            padding: 0;
+            box-sizing: border-box;
         }
-        .container {
+
+        body {
+            font-family: 'Inter', -apple-system, BlinkMacSystemFont, 'Segoe UI', Roboto, Oxygen, Ubuntu, Cantarell, sans-serif;
+            line-height: 1.6;
+            color: #1a202c;
+            background: #ffffff;
+            overflow-x: hidden;
+        }
+
+        /* Header */
+        .header {
+            background: linear-gradient(135deg, #1a202c 0%, #2d3748 100%);
+            color: white;
+            padding: 1rem 2rem;
+            box-shadow: 0 2px 10px rgba(0,0,0,0.1);
+        }
+
+        .header-content {
+            max-width: 1200px;
+            margin: 0 auto;
+            display: flex;
+            justify-content: space-between;
+            align-items: center;
+        }
+
+        .logo {
+            font-size: 1.5rem;
+            font-weight: 900;
+            display: flex;
+            align-items: center;
+            gap: 0.5rem;
+        }
+
+        .flag-colors {
+            display: flex;
+            gap: 2px;
+        }
+
+        .flag-color {
+            width: 4px;
+            height: 24px;
+            border-radius: 2px;
+        }
+
+        .flag-black { background: #000000; }
+        .flag-red { background: #D32011; }
+        .flag-green { background: #00A83F; }
+
+        /* Hero Section */
+        .hero {
+            background: linear-gradient(135deg, #1e3a8a 0%, #3b82f6 100%);
+            color: white;
+            padding: 5rem 2rem;
             text-align: center;
-            padding: 2rem;
         }
-        h1 { margin-bottom: 1rem; }
-        .links { margin-top: 2rem; }
-        a {
+
+        .hero-content {
+            max-width: 900px;
+            margin: 0 auto;
+        }
+
+        .hero h1 {
+            font-size: 3.5rem;
+            font-weight: 900;
+            margin-bottom: 1rem;
+            line-height: 1.2;
+        }
+
+        .hero .subtitle {
+            font-size: 1.5rem;
+            margin-bottom: 1rem;
+            opacity: 0.95;
+        }
+
+        .hero .description {
+            font-size: 1.1rem;
+            margin-bottom: 2.5rem;
+            opacity: 0.9;
+            max-width: 700px;
+            margin-left: auto;
+            margin-right: auto;
+        }
+
+        .badge {
             display: inline-block;
-            margin: 0.5rem;
-            padding: 0.75rem 1.5rem;
             background: rgba(255,255,255,0.2);
-            color: white;
-            text-decoration: none;
-            border-radius: 5px;
+            padding: 0.5rem 1rem;
+            border-radius: 20px;
+            font-size: 0.9rem;
+            margin-bottom: 2rem;
             backdrop-filter: blur(10px);
         }
-        a:hover {
-            background: rgba(255,255,255,0.3);
+
+        /* Buttons */
+        .btn-group {
+            display: flex;
+            gap: 1rem;
+            justify-content: center;
+            flex-wrap: wrap;
+        }
+
+        .btn {
+            display: inline-flex;
+            align-items: center;
+            gap: 0.5rem;
+            padding: 1rem 2rem;
+            font-size: 1.1rem;
+            font-weight: 600;
+            text-decoration: none;
+            border-radius: 8px;
+            transition: all 0.3s ease;
+            border: 2px solid transparent;
+        }
+
+        .btn-primary {
+            background: white;
+            color: #1e3a8a;
+        }
+
+        .btn-primary:hover {
+            transform: translateY(-2px);
+            box-shadow: 0 10px 25px rgba(0,0,0,0.2);
+        }
+
+        .btn-secondary {
+            background: transparent;
+            color: white;
+            border-color: white;
+        }
+
+        .btn-secondary:hover {
+            background: rgba(255,255,255,0.1);
+        }
+
+        /* Info Banner */
+        .info-banner {
+            background: #fef3c7;
+            border-left: 4px solid #f59e0b;
+            padding: 2rem;
+            margin: 3rem auto;
+            max-width: 1200px;
+            border-radius: 8px;
+        }
+
+        .info-banner h3 {
+            color: #92400e;
+            margin-bottom: 1rem;
+            font-size: 1.3rem;
+        }
+
+        .info-banner p {
+            color: #78350f;
+            margin-bottom: 0.5rem;
+        }
+
+        /* Month Names Comparison */
+        .comparison-section {
+            max-width: 1200px;
+            margin: 4rem auto;
+            padding: 0 2rem;
+        }
+
+        .comparison-grid {
+            display: grid;
+            grid-template-columns: repeat(auto-fit, minmax(300px, 1fr));
+            gap: 2rem;
+            margin-top: 2rem;
+        }
+
+        .comparison-card {
+            background: white;
+            border-radius: 12px;
+            padding: 2rem;
+            box-shadow: 0 4px 6px rgba(0,0,0,0.07);
+            border: 2px solid #e5e7eb;
+        }
+
+        .comparison-card h4 {
+            font-size: 1.3rem;
+            margin-bottom: 1.5rem;
+            color: #1e3a8a;
+            display: flex;
+            align-items: center;
+            gap: 0.5rem;
+        }
+
+        .month-list {
+            list-style: none;
+        }
+
+        .month-item {
+            padding: 0.75rem;
+            background: #f9fafb;
+            margin-bottom: 0.5rem;
+            border-radius: 6px;
+            display: flex;
+            justify-content: space-between;
+            align-items: center;
+        }
+
+        .month-number {
+            background: #1e3a8a;
+            color: white;
+            width: 28px;
+            height: 28px;
+            border-radius: 50%;
+            display: flex;
+            align-items: center;
+            justify-content: center;
+            font-size: 0.85rem;
+            font-weight: 600;
+        }
+
+        /* Features Section */
+        .features {
+            background: #f9fafb;
+            padding: 5rem 2rem;
+        }
+
+        .features-content {
+            max-width: 1200px;
+            margin: 0 auto;
+        }
+
+        .section-title {
+            text-align: center;
+            font-size: 2.5rem;
+            font-weight: 900;
+            margin-bottom: 1rem;
+            color: #1a202c;
+        }
+
+        .section-subtitle {
+            text-align: center;
+            font-size: 1.2rem;
+            color: #4a5568;
+            margin-bottom: 3rem;
+        }
+
+        .features-grid {
+            display: grid;
+            grid-template-columns: repeat(auto-fit, minmax(280px, 1fr));
+            gap: 2rem;
+        }
+
+        .feature-card {
+            background: white;
+            padding: 2rem;
+            border-radius: 12px;
+            box-shadow: 0 4px 6px rgba(0,0,0,0.05);
+            transition: transform 0.3s ease, box-shadow 0.3s ease;
+        }
+
+        .feature-card:hover {
+            transform: translateY(-5px);
+            box-shadow: 0 10px 20px rgba(0,0,0,0.1);
+        }
+
+        .feature-icon {
+            font-size: 2.5rem;
+            margin-bottom: 1rem;
+        }
+
+        .feature-card h3 {
+            font-size: 1.3rem;
+            margin-bottom: 0.5rem;
+            color: #1e3a8a;
+        }
+
+        .feature-card p {
+            color: #4a5568;
+            line-height: 1.7;
+        }
+
+        /* Endpoints Section */
+        .endpoints {
+            padding: 5rem 2rem;
+            max-width: 1200px;
+            margin: 0 auto;
+        }
+
+        .endpoint-card {
+            background: #1a202c;
+            color: white;
+            padding: 1.5rem;
+            border-radius: 8px;
+            margin-bottom: 1rem;
+            font-family: 'Courier New', monospace;
+        }
+
+        .endpoint-method {
+            display: inline-block;
+            background: #10b981;
+            color: white;
+            padding: 0.25rem 0.75rem;
+            border-radius: 4px;
+            font-size: 0.85rem;
+            font-weight: 600;
+            margin-right: 1rem;
+        }
+
+        .endpoint-method.post {
+            background: #3b82f6;
+        }
+
+        .endpoint-path {
+            color: #60a5fa;
+        }
+
+        /* Footer */
+        .footer {
+            background: #1a202c;
+            color: white;
+            padding: 3rem 2rem;
+            text-align: center;
+        }
+
+        .footer-content {
+            max-width: 1200px;
+            margin: 0 auto;
+        }
+
+        .footer p {
+            opacity: 0.8;
+        }
+
+        /* Responsive */
+        @media (max-width: 768px) {
+            .hero h1 {
+                font-size: 2rem;
+            }
+
+            .hero .subtitle {
+                font-size: 1.2rem;
+            }
+
+            .btn-group {
+                flex-direction: column;
+            }
+
+            .comparison-grid {
+                grid-template-columns: 1fr;
+            }
         }
     </style>
 </head>
 <body>
-    <div class="container">
-        <h1>🗓️ Shamsi Calendar API</h1>
-        <p>A comprehensive API for the Afghan Shamsi (Solar Hijri) calendar</p>
-        <div class="links">
-            <a href="/api-docs">📚 API Documentation</a>
-            <a href="/health">✅ Health Check</a>
+    <!-- Header -->
+    <header class="header">
+        <div class="header-content">
+            <div class="logo">
+                <div class="flag-colors">
+                    <div class="flag-color flag-black"></div>
+                    <div class="flag-color flag-red"></div>
+                    <div class="flag-color flag-green"></div>
+                </div>
+                Afghan Shamsi Calendar API
+            </div>
         </div>
+    </header>
+
+    <!-- Hero Section -->
+    <section class="hero">
+        <div class="hero-content">
+            <div class="badge">🇦🇫 Made for Afghanistan</div>
+            <h1>Afghan Shamsi Calendar API</h1>
+            <p class="subtitle">The Official RESTful API for Afghanistan's Solar Hijri Calendar</p>
+            <p class="description">
+                A comprehensive, accurate API built specifically for Afghan calendar calculations with authentic Dari and Pashto month names.
+            </p>
+            <div class="btn-group">
+                <a href="/api-docs" class="btn btn-primary">📚 Explore API Documentation</a>
+                <a href="/health" class="btn btn-secondary">✅ Check API Status</a>
+            </div>
+        </div>
+    </section>
+
+    <!-- Info Banner -->
+    <div class="info-banner">
+        <h3>⚠️ Why This Matters: Afghan vs. Iranian Calendar Names</h3>
+        <p><strong>While Afghanistan and Iran both use the Solar Hijri calendar system, the month names are completely different.</strong></p>
+        <p>🇦🇫 Afghanistan uses Dari/Pashto names (Hamal, Sawr, Jawzā, etc.)</p>
+        <p>🇮🇷 Iran uses Persian names (Farvardin, Ordibehesht, Khordad, etc.)</p>
+        <p>Most calendar APIs and tools use Iranian names, making them confusing or unusable for Afghans. This API is built specifically for Afghanistan with authentic Afghan month names.</p>
     </div>
+
+    <!-- Month Names Comparison -->
+    <section class="comparison-section">
+        <h2 class="section-title">Month Names: Afghanistan vs. Iran</h2>
+        <div class="comparison-grid">
+            <div class="comparison-card">
+                <h4>🇦🇫 Afghan Names (Dari/Pashto)</h4>
+                <ul class="month-list">
+                    <li class="month-item"><span class="month-number">1</span> حمل (Hamal)</li>
+                    <li class="month-item"><span class="month-number">2</span> ثور (Sawr)</li>
+                    <li class="month-item"><span class="month-number">3</span> جوزا (Jawzā)</li>
+                    <li class="month-item"><span class="month-number">4</span> سرطان (Saratān)</li>
+                    <li class="month-item"><span class="month-number">5</span> اسد (Asad)</li>
+                    <li class="month-item"><span class="month-number">6</span> سنبله (Sonbola)</li>
+                    <li class="month-item"><span class="month-number">7</span> میزان (Mīzān)</li>
+                    <li class="month-item"><span class="month-number">8</span> عقرب (Aqrab)</li>
+                    <li class="month-item"><span class="month-number">9</span> قوس (Qaws)</li>
+                    <li class="month-item"><span class="month-number">10</span> جدی (Jadi)</li>
+                    <li class="month-item"><span class="month-number">11</span> دلو (Dalw)</li>
+                    <li class="month-item"><span class="month-number">12</span> حوت (Hūt)</li>
+                </ul>
+            </div>
+
+            <div class="comparison-card">
+                <h4>🇮🇷 Iranian Names (Persian)</h4>
+                <ul class="month-list">
+                    <li class="month-item"><span class="month-number">1</span> فروردین (Farvardin)</li>
+                    <li class="month-item"><span class="month-number">2</span> اردیبهشت (Ordibehesht)</li>
+                    <li class="month-item"><span class="month-number">3</span> خرداد (Khordad)</li>
+                    <li class="month-item"><span class="month-number">4</span> تیر (Tir)</li>
+                    <li class="month-item"><span class="month-number">5</span> مرداد (Mordad)</li>
+                    <li class="month-item"><span class="month-number">6</span> شهریور (Shahrivar)</li>
+                    <li class="month-item"><span class="month-number">7</span> مهر (Mehr)</li>
+                    <li class="month-item"><span class="month-number">8</span> آبان (Aban)</li>
+                    <li class="month-item"><span class="month-number">9</span> آذر (Azar)</li>
+                    <li class="month-item"><span class="month-number">10</span> دی (Dey)</li>
+                    <li class="month-item"><span class="month-number">11</span> بهمن (Bahman)</li>
+                    <li class="month-item"><span class="month-number">12</span> اسفند (Esfand)</li>
+                </ul>
+            </div>
+        </div>
+    </section>
+
+    <!-- Features Section -->
+    <section class="features">
+        <div class="features-content">
+            <h2 class="section-title">Features</h2>
+            <p class="section-subtitle">Everything you need for Afghan calendar integration</p>
+
+            <div class="features-grid">
+                <div class="feature-card">
+                    <div class="feature-icon">🔄</div>
+                    <h3>Date Conversion</h3>
+                    <p>Convert seamlessly between Afghan Shamsi and Gregorian calendars with full accuracy.</p>
+                </div>
+
+                <div class="feature-card">
+                    <div class="feature-icon">📅</div>
+                    <h3>Calendar Views</h3>
+                    <p>Generate day, week, month, and year calendar views with proper Afghan formatting.</p>
+                </div>
+
+                <div class="feature-card">
+                    <div class="feature-icon">🎉</div>
+                    <h3>Afghan Holidays</h3>
+                    <p>Complete database of Afghan national, religious, and cultural holidays with descriptions in Dari and Pashto.</p>
+                </div>
+
+                <div class="feature-card">
+                    <div class="feature-icon">🌐</div>
+                    <h3>Multi-Language Support</h3>
+                    <p>Full support for Dari (دری), Pashto (پښتو), and English responses.</p>
+                </div>
+
+                <div class="feature-card">
+                    <div class="feature-icon">⚡</div>
+                    <h3>Fast & Reliable</h3>
+                    <p>Hosted on Vercel's global edge network for lightning-fast responses worldwide.</p>
+                </div>
+
+                <div class="feature-card">
+                    <div class="feature-icon">📖</div>
+                    <h3>Full Documentation</h3>
+                    <p>Complete Swagger/OpenAPI documentation with interactive testing capabilities.</p>
+                </div>
+
+                <div class="feature-card">
+                    <div class="feature-icon">🔓</div>
+                    <h3>Free & Open</h3>
+                    <p>Completely free to use with no authentication required for public endpoints.</p>
+                </div>
+
+                <div class="feature-card">
+                    <div class="feature-icon">🛡️</div>
+                    <h3>RESTful Design</h3>
+                    <p>Clean, intuitive REST API following industry best practices and standards.</p>
+                </div>
+            </div>
+        </div>
+    </section>
+
+    <!-- Endpoints Preview -->
+    <section class="endpoints">
+        <h2 class="section-title">Sample API Endpoints</h2>
+        <p class="section-subtitle">Quick examples of what you can do</p>
+
+        <div class="endpoint-card">
+            <span class="endpoint-method">GET</span>
+            <span class="endpoint-path">/api/convert/today</span>
+            <p style="margin-top: 1rem; opacity: 0.8;">Get today's date in both Shamsi and Gregorian calendars</p>
+        </div>
+
+        <div class="endpoint-card">
+            <span class="endpoint-method post">POST</span>
+            <span class="endpoint-path">/api/convert/shamsi-to-gregorian</span>
+            <p style="margin-top: 1rem; opacity: 0.8;">Convert a Shamsi date to Gregorian calendar</p>
+        </div>
+
+        <div class="endpoint-card">
+            <span class="endpoint-method">GET</span>
+            <span class="endpoint-path">/api/calendar/month/{year}/{month}</span>
+            <p style="margin-top: 1rem; opacity: 0.8;">Get full month calendar with holidays and day names</p>
+        </div>
+
+        <div class="endpoint-card">
+            <span class="endpoint-method">GET</span>
+            <span class="endpoint-path">/api/holidays/year/{year}</span>
+            <p style="margin-top: 1rem; opacity: 0.8;">Get all Afghan holidays for a specific year</p>
+        </div>
+
+        <div style="text-align: center; margin-top: 3rem;">
+            <a href="/api-docs" class="btn btn-primary">View All Endpoints →</a>
+        </div>
+    </section>
+
+    <!-- Footer -->
+    <footer class="footer">
+        <div class="footer-content">
+            <p style="font-size: 1.2rem; margin-bottom: 1rem;"><strong>Afghan Shamsi Calendar API</strong></p>
+            <p>Built with ❤️ for Afghanistan and the Afghan diaspora worldwide</p>
+            <p style="margin-top: 1rem; opacity: 0.6;">© 2025 | Open Source | MIT License</p>
+        </div>
+    </footer>
 </body>
 </html>
