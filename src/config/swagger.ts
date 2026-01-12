@@ -11,7 +11,7 @@ const options: swaggerJsdoc.Options = {
       description: 'A comprehensive RESTful API for the Afghan Shamsi (Solar Hijri) calendar with full support for Dari, Pashto, and English languages.',
       contact: {
         name: 'API Support',
-        email: 'support@example.com',
+        email: 'nuristani.munir@gmail.com',
       },
       license: {
         name: 'MIT',
@@ -19,10 +19,7 @@ const options: swaggerJsdoc.Options = {
       },
     },
     servers: [
-      {
-        url: 'http://localhost:3000',
-        description: 'Development server',
-      },
+      
       {
         url: process.env.PRODUCTION_URL || 'https://shamsi-calendar-api.com',
         description: 'Production server',
@@ -284,7 +281,12 @@ const options: swaggerJsdoc.Options = {
       },
     },
   },
-  apis: ['./src/routes/*.ts', './src/controllers/*.ts'],
+  apis: [
+    './src/routes/*.ts',
+    './src/controllers/*.ts',
+    './dist/routes/*.js',
+    './dist/controllers/*.js'
+  ],
 };
 
 export const swaggerSpec = swaggerJsdoc(options);
